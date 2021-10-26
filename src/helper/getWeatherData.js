@@ -4,10 +4,17 @@ const getWeatherData = async (citys) => {
 		citys
 	)}&appid=${apiKey}`;
 	const resp = await fetch(urlApi);
-	const { main, weather, name } = await resp.json();
+	const {
+		main: { temp: temperature, temp_min, temp_max },
+		weather,
+		name,
+	} = await resp.json();
+	const kelvinToCelsius = (k) => `${(k - 273.15).toFixed(2)} Cº`;
 	const weatherData = {
 		name: name,
-		temp: main?.temp,
+		tempMin: kelvinToCelsius(temp_min),
+		tempMax: kelvinToCelsius(temp_max),
+		temp: kelvinToCelsius(temperature),
 		icon: `http://openweathermap.org/img/w/${weather[0].icon}.png`,
 	};
 

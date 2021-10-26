@@ -4,7 +4,7 @@ import getWeatherData from '../helper/getWeatherData';
 export const useFetch = (citys) => {
 	const [state, setState] = useState({
 		loading: true,
-		data: [],
+		data: {},
 	});
 
 	useEffect(() => {

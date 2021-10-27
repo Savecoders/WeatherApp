@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Addcity from './components/AddCity';
+import FindOfCity from './components/FindOfCity';
 import WeatherGrid from './components/WeatherGrid';
 const WhatherApp = () => {
-	const [citys, setCitys] = useState('buenos aires');
+	const [citys, setCitys] = useState('Guayaquil');
 	return (
 		<>
-			<h2>WeatherMap</h2>
-			<Addcity setCitys={setCitys} />
+			<h2>WeatherApp</h2>
+			<FindOfCity setCitys={setCitys} />
 			<WeatherGrid key={citys} citys={citys} />
 		</>
 	);

@@ -5,9 +5,10 @@ const getWeatherData = async (citys) => {
 	)}&appid=${apiKey}`;
 	const resp = await fetch(urlApi);
 	const {
-		main: { temp: temperature, temp_min, temp_max },
-		weather,
 		name,
+		main: { temp: temperature, temp_min, temp_max },
+		id,
+		weather,
 	} = await resp.json();
 	const kelvinToCelsius = (k) => `${(k - 273.15).toFixed(2)} Cº`;
 	const weatherData = {
@@ -15,6 +16,7 @@ const getWeatherData = async (citys) => {
 		tempMin: kelvinToCelsius(temp_min),
 		tempMax: kelvinToCelsius(temp_max),
 		temp: kelvinToCelsius(temperature),
+		id: id,
 		icon: `http://openweathermap.org/img/w/${weather[0].icon}.png`,
 	};
 

@@ -8,16 +8,16 @@ const Addcity = ({ setCitys }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (inputValue.trim().length > 2) {
+		if (inputValue.trim().length > 3) {
 			setCitys((city) => inputValue);
 			setInputValue('');
 		}
 	};
 	return (
-		<form onSubmit={handleSubmit} className='mg-3vw'>
+		<form onSubmit={handleSubmit}>
 			<input
 				type='text'
-				placeholder='Search of city'
+				placeholder='Search weather'
 				value={inputValue}
 				onChange={handleInputChange}
 				className='text-field'
